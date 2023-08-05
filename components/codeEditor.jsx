@@ -9,11 +9,7 @@ import dynamic from "next/dynamic";
 
 const Editor = dynamic(() => import("@monaco-editor/react"), { ssr: false });
 
-interface CodeEditorProps {
-  id: string;
-}
-
-export default function CodeEditor({ id }: CodeEditorProps) {
+export default function CodeEditor({ id }) {
   const editorRef = useRef(null);
 
   // Editor value -> YJS Text value (A text value shared by multiple people)
@@ -22,7 +18,7 @@ export default function CodeEditor({ id }: CodeEditorProps) {
 
   // Initialize YJS, tell it to listen to our Monaco instance for changes.
 
-  function handleEditorDidMount(editor: any, monaco: any) {
+  function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
 
     // Initialize YJS
