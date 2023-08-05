@@ -10,7 +10,7 @@ export default function page({ params }: { params: { codeBlockId: string } }) {
           Code Block {params.codeBlockId}
         </h1>
       </div>
-      <CodeEditor />
+      <CodeEditor id={params.codeBlockId} />
       <Button className=" m-5">Submit</Button>
     </>
   );
