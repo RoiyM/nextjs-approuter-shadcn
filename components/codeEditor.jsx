@@ -25,11 +25,7 @@ export default function CodeEditor({ id }) {
     const doc = new Y.Doc(); // a collection of shared objects -> Text
     // Connect to peers (or start connection) with WebRTC
 
-    const provider = new WebrtcProvider(`room${id}`, doc, {
-      signaling: [
-        "wss://expressjs-postgres-production-0cd0.up.railway.app:3333",
-      ],
-    }); // room1, room2
+    const provider = new WebrtcProvider(`room${id}`, doc); // room1, room2
     const type = doc.getText("monaco"); // doc { "monaco": "what our IDE is showing" }
     // Bind YJS to Monaco
     const binding = new MonacoBinding(
